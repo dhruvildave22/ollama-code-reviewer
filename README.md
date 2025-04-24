@@ -55,7 +55,12 @@ npm install
 
 ### 3. Start a Local Model with Ollama
 
-You can use `codellama`, `mistral`, or any other local model. This project assumes **codellama**.
+First you have to start ollama
+```bash
+ollama serve
+```
+
+Now you can use `codellama`, `mistral`, or any other local model. This project assumes **codellama**.
 
 ```bash
 ollama run codellama
