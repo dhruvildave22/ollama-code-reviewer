@@ -116,6 +116,11 @@ await fetch("http://localhost:11434/api/generate", {
 
 ---
 
+## Project Screenshots
+![screencapture-localhost-5173-2025-04-24-17_34_16](https://github.com/user-attachments/assets/1a26c125-3779-46de-a30a-beae9db6fdc7)
+
+
+
 ## 📄 License
 MIT License — feel free to modify and build upon it.
 
