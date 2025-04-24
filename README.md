@@ -14,11 +14,29 @@ This project allows you to run a **ChatGPT-style code reviewer locally** using [
 ## ⚙️ Prerequisites
 
 1. **Install Node.js** (v16 or higher)
-2. **Install Ollama** (Mac/Linux/Windows)
-   ```bash
-   brew install ollama
-   # or go to https://ollama.com/download
-   ```
+2. **Install Ollama**
+   - **Mac (Homebrew)**:
+     ```bash
+     brew install ollama
+     ```
+   - **Windows**:
+     1. Go to [https://ollama.com/download](https://ollama.com/download)
+     2. Download the `.exe` installer and run it
+     3. After installation, open Command Prompt and run:
+        ```bash
+        ollama --version
+        ```
+        to confirm it's working
+   - **Ubuntu/Linux**:
+     1. Download the Linux `.deb` package from [https://ollama.com/download](https://ollama.com/download)
+     2. Then install it via terminal:
+        ```bash
+        sudo apt install ./ollama_<version>_amd64.deb
+        ```
+     3. Confirm install:
+        ```bash
+        ollama --version
+        ```
 
 ---
 
@@ -27,7 +45,7 @@ This project allows you to run a **ChatGPT-style code reviewer locally** using [
 ### 1. Clone the Repo
 ```bash
 git clone https://github.com/dhruvildave22/ollama-code-reviewer.git
-cd ollama-code-review
+cd ollama-code-reviewer
 ```
 
 ### 2. Install Dependencies
@@ -50,9 +68,9 @@ To list available models:
 ```bash
 ollama list
 ```
-To pull others:
+To pull others (optional):
 ```bash
-ollama pull mistral
+ollama pull mistral  # Optional: only if you want to test other models
 ```
 
 ### 4. Start the App
@@ -116,10 +134,10 @@ await fetch("http://localhost:11434/api/generate", {
 
 ---
 
-## Project Screenshots
+## 📷 Project Screenshots
 ![screencapture-localhost-5173-2025-04-24-17_34_16](https://github.com/user-attachments/assets/1a26c125-3779-46de-a30a-beae9db6fdc7)
 
-
+---
 
 ## 📄 License
 MIT License — feel free to modify and build upon it.
