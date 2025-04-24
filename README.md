@@ -1,26 +1,121 @@
-# React Tailwind CSS Template
-## This is repo is starter kit for your next ollama-code-reviewer based project
+# 🧠 Ollama Code Reviewer (Local ChatGPT for Code Analysis)
 
+This project allows you to run a **ChatGPT-style code reviewer locally** using [Ollama](https://ollama.com/) and React. It lets you paste custom **CSS and JavaScript** code and receive a structured, Excel-style analysis output.
 
-You can clone this repo and start using it to create your application. Make sure you have node above 18
+---
 
-- ✨LET's Get the Project Started✨
+## 📦 Tech Stack
+- [Vite](https://vitejs.dev/) + React
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Ollama](https://ollama.com/) for running local LLMs (CodeLlama, Mistral, etc.)
 
+---
 
-## Installation
+## ⚙️ Prerequisites
 
-For Development...
+1. **Install Node.js** (v16 or higher)
+2. **Install Ollama** (Mac/Linux/Windows)
+   ```bash
+   brew install ollama
+   # or go to https://ollama.com/download
+   ```
 
-```sh
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repo
+```bash
 git clone https://github.com/dhruvildave22/ollama-code-reviewer.git
-cd ollama-code-reviewer
+cd ollama-code-review
+```
+
+### 2. Install Dependencies
+```bash
 npm install
+```
+
+### 3. Start a Local Model with Ollama
+
+You can use `codellama`, `mistral`, or any other local model. This project assumes **codellama**.
+
+```bash
+ollama run codellama
+```
+This starts the Ollama server at `http://localhost:11434`.
+
+> 💡 You can switch models by changing the `model` value in `App.jsx`.
+
+To list available models:
+```bash
+ollama list
+```
+To pull others:
+```bash
+ollama pull mistral
+```
+
+### 4. Start the App
+```bash
 npm run dev
 ```
+Visit [http://localhost:5173](http://localhost:5173) in your browser.
 
-For production...
+---
 
-```sh
-npm run build
+## ✨ Features
+
+- Paste **CSS** and **JS** code to analyze customization logic
+- Uses local LLM to output structured, Excel-like insights
+- Table-formatted output that's easily readable
+- Visual summary panel for copied code
+- Styled with Tailwind (light, calm theme)
+- Loading animation with disabled state
+
+---
+
+## 📤 Prompt Optimization
+
+The app sends this prompt to Ollama:
+
 ```
-# ollama-code-reviewer
+You are a code reviewer. Analyze the following HTML, CSS, or JavaScript code and respond using this Markdown table format only:
+
+| Column | Entry |
+|--------|-------|
+| Color/Font Changes? | ✅ Yes — ... |
+| UI Text/Message Changes? | ❌ No |
+...and so on.
+
+Functionality Description: A short summary of what the code does.
+```
+
+This ensures clean and parseable markdown tables.
+
+---
+
+## 🧪 API Example
+```ts
+await fetch("http://localhost:11434/api/generate", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    model: "codellama",
+    prompt: "<your full prompt here>",
+    stream: false,
+  })
+})
+```
+
+---
+
+## 💡 Suggestions
+- Use `stream: false` to ensure full table rendering
+- Run `ollama run codellama` in a separate terminal
+- Tailor prompt output to match your table logic
+
+---
+
+## 📄 License
+MIT License — feel free to modify and build upon it.
+
